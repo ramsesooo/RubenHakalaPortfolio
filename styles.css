@@ -1,0 +1,488 @@
+/* =========================================
+   1. VINTAGE NEWSPRINT VARIABLES & BASE
+   ========================================= */
+:root {
+  --paper-bg: #f3ede0;
+  --paper-tint: #e8dec8;
+  --ink: #1e1b18;
+  --ink-muted: #4a433b;
+  --border-dark: #1e1b18;
+  --font-gothic: 'UnifrakturMaguntia', serif;
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-display: 'IM Fell English', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050047; /* Dark desk background behind the paper */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.48;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* The Newspaper Sheet Container */
+.newspaper-sheet {
+  max-width: 1140px;
+  margin: 0 auto;
+  background-color: var(--paper-bg);
+  /* Subtle aged paper gradient & grain feel */
+  background-image: radial-gradient(rgba(30, 27, 24, 0.04) 1px, transparent 0),
+                    linear-gradient(to bottom, #f5f0e6, #ebe2cf);
+  background-size: 20px 20px, 100% 100%;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid #c9bea9;
+}
+
+/* =========================================
+   2. MASTHEAD & NAVIGATION BAR
+   ========================================= */
+.masthead-top {
+  display: grid;
+  grid-template-columns: 160px 1fr 160px;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+}
+
+.paper-title {
+  font-family: Cinzel;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  text-align: center;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.ear-box {
+  border: 1.5px solid var(--border-dark);
+  padding: 0.45rem 0.6rem;
+  font-size: 0.72rem;
+  text-align: center;
+  line-height: 1.3;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dateline-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 3px double var(--border-dark);
+  border-bottom: 3px double var(--border-dark);
+  padding: 0.45rem 0.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.15rem 0.35rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-links a:hover {
+  background-color: var(--ink);
+  color: var(--paper-bg);
+}
+
+/* =========================================
+   3. BROADSHEET GRID LAYOUT
+   ========================================= */
+.broadsheet-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1.5rem;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 1.5rem;
+}
+
+.lead-section {
+  border-right: 1px solid var(--border-dark);
+  padding-right: 1.5rem;
+}
+
+.lead-columns,
+.secondary-story {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.sub-columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+/* =========================================
+   4. TYPOGRAPHY, DROP CAPS & IMAGES
+   ========================================= */
+.headline-xl {
+  font-family: var(--font-headline);
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.headline-lg {
+  font-family: var(--font-headline);
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.headline-md {
+  font-family: var(--font-headline);
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+
+.subhead {
+  font-size: 0.86rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 0.25rem 0;
+  margin-bottom: 0.65rem;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Classic Newspaper Drop Cap */
+.drop-cap::first-letter {
+  font-family: var(--font-headline);
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.82;
+  padding-right: 0.4rem;
+  padding-top: 0.15rem;
+  font-weight: 900;
+}
+
+/* Vintage High-Contrast Photo Treatment */
+.hero-figure {
+  border: 1.5px solid var(--border-dark);
+  padding: 0.3rem;
+  background: var(--paper-tint);
+}
+
+.hero-figure img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) contrast(125%) sepia(25%);
+}
+
+.hero-figure figcaption {
+  font-size: 0.74rem;
+  font-style: italic;
+  padding-top: 0.35rem;
+  text-align: left;
+}
+
+.double-rule {
+  border: 0;
+  border-top: 3px double var(--border-dark);
+  margin: 1.25rem 0;
+}
+
+/* =========================================
+   5. SIDEBAR & VINTAGE AD BOXES
+   ========================================= */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.bio-box {
+  border: 2px solid var(--border-dark);
+  padding: 0.9rem;
+  text-align: center;
+  background: rgba(30, 27, 24, 0.03);
+}
+
+.bio-box h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.bio-box p {
+  text-align: center;
+  font-size: 0.88rem;
+  margin-bottom: 0.4rem;
+}
+
+.signature {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ad-box {
+  border: 3px double var(--border-dark);
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--paper-tint);
+}
+
+.ad-tiny {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ad-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.ad-box p {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.85rem 0;
+}
+
+.ad-footer {
+  border-top: 1px solid var(--border-dark);
+  padding-top: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* Buttons & Links */
+.article-btn,
+.inline-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-btn:hover,
+.inline-link:hover {
+  background-color: var(--ink);
+  color: var(--paper-bg);
+  text-decoration: none;
+  padding: 0 0.25rem;
+}
+
+.vintage-btn {
+  display: inline-block;
+  border: 1.5px solid var(--border-dark);
+  background: var(--ink);
+  color: var(--paper-bg);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.vintage-btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* =========================================
+   6. BOTTOM CLASSIFIEDS / MINI PROJECTS
+   ========================================= */
+.classifieds-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 1.25rem;
+}
+
+.ad-card {
+  border: 2px solid var(--border-dark);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.ad-stamp {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ad-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.ad-card p {
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.ad-card a {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--ink);
+  border-top: 1px solid var(--border-dark);
+  padding-top: 0.35rem;
+  text-decoration: none;
+}
+
+.ad-card a:hover {
+  text-decoration: underline;
+}
+
+.ad-price {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-dark);
+  padding-top: 0.35rem;
+}
+
+.ad-price span {
+  font-size: 1.25rem;
+}
+
+/* Dark Contrast Card (Modeled after bottom-right ad) */
+.dark-ad {
+  background-color: #36312b;
+  color: var(--paper-bg);
+}
+
+.dark-ad .ad-stamp {
+  border-bottom-color: var(--paper-bg);
+}
+
+.light-btn {
+  background: var(--paper-bg);
+  color: var(--ink);
+  border-color: var(--paper-bg);
+}
+
+.light-btn:hover {
+  background: transparent;
+  color: var(--paper-bg);
+}
+
+/* =========================================
+   7. RESPONSIVE MOBILE BREAKPOINTS
+   ========================================= */
+@media (max-width: 920px) {
+  .masthead-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .ear-box {
+    display: none;
+  }
+  .broadsheet-grid {
+    grid-template-columns: 1fr;
+  }
+  .lead-section {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 1.5rem;
+  }
+  .classifieds-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .newspaper-sheet {
+    padding: 1.25rem 1rem;
+  }
+  .lead-columns,
+  .secondary-story,
+  .sub-columns-2,
+  .classifieds-grid {
+    grid-template-columns: 1fr;
+  }
+  .col-span-2 {
+    grid-column: span 1;
+  }
+}
+/* 
+html {
+  /* Replace 'table-coffee.jpg' with the actual filename or image URL */
+  background-image: url('table.webp');
+  
+  /* Makes the image scale to cover the entire screen without distorting */
+  background-size: cover;
+
+  background-size: 120%;
+  
+  /* Centers the image on the screen */
+  background-position: center;
+  
+  /* Prevents the background from repeating like a tile */
+  background-repeat: no-repeat;
+  
+  /* Locks the background in place so the newspaper scrolls on top of it */
+  background-attachment: fixed;
+} */

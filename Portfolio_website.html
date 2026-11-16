@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Developer — Portfolio</title>
+  <!-- Google Fonts for authentic vintage editorial typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="newspaper-sheet">
+    
+    <!-- TOP MASTHEAD HEADER -->
+    <header class="masthead">
+      <div class="masthead-top">
+        <div class="ear-box">
+          <strong>TECH STACK</strong><br>
+          Python • FastAPI<br>
+          SQL • Docker • JS
+        </div>
+        
+        <h1 class="paper-title">Ruben Hakala Portfolio</h1>
+        
+        <div class="ear-box">
+          <strong>STATUS REPORT</strong><br>
+          Open for Roles<br>
+          100% Uptime
+        </div>
+      </div>
+
+      <!-- DATELINE & JUMP LINKS (NAVIGATION) -->
+      <div class="dateline-bar">
+        <span>ISSUE Nº 01</span>
+        <nav class="nav-links" aria-label="Newspaper Sections">
+          <a href="#front-page">FRONT PAGE</a> •
+          <a href="#projects">PYTHON PROJECTS</a> •
+          <a href="#classifieds">TOOLKIT &amp; SCRIPTS</a> •
+          <a href="#contact">CONTACT EDITOR</a>
+        </nav>
+        <span>PRICE: FREE TO HIRE</span>
+      </div>
+    </header>
+
+    <!-- MAIN BROADSHEET GRID -->
+    <main class="broadsheet-grid" id="front-page">
+      
+      <!-- LEFT & CENTER-LEFT: LEAD STORY (3 Columns wide) -->
+      <section class="lead-section">
+        <h2 class="headline-xl">AUTOMATED PIPELINE SAVES 20 HOURS WEEKLY</h2>
+        
+        <div class="lead-columns">
+          <!-- Column 1: Story intro -->
+          <article class="col">
+            <p class="subhead"><em>Custom Python scraper and FastAPI dashboard eliminate manual data entry.</em></p>
+            <h3 class="kicker">FULL-STACK ARCHITECTURE</h3>
+            <p class="drop-cap">
+              Built from the ground up using Python, FastAPI, and PostgreSQL, this flagship project ingests thousands of unstructured records daily. By replacing brittle spreadsheets with automated async workers, processing latency dropped by 85%.
+            </p>
+            <p>
+              The backend exposes clean RESTful endpoints documented via Swagger UI, allowing team members to query real-time metrics without touching raw code.
+            </p>
+            <a href="https://github.com" target="_blank" class="article-btn">Read Source Code &rarr;</a>
+          </article>
+
+          <!-- Columns 2 & 3: Hero Photo + Two sub-columns underneath -->
+          <div class="col-span-2">
+            <figure class="hero-figure">
+              <!-- Replace src with a screenshot or architecture diagram of your app -->
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="Code editor displaying Python backend architecture" />
+              <figcaption>Fig 1. Live deployment architecture running containerized Python microservices.</figcaption>
+            </figure>
+
+            <div class="sub-columns-2">
+              <p>
+                <strong>Technical Challenges:</strong> Handling rate limits across external APIs required implementing exponential backoff and a Redis caching layer to prevent redundant network requests.
+              </p>
+              <p>
+                <strong>Deployment &amp; Testing:</strong> Achieving 94% test coverage with Pytest ensured zero regressions during continuous deployment via GitHub Actions and Docker.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="double-rule" id="projects" />
+
+        <!-- SECONDARY FEATURE STORY -->
+        <div class="secondary-story">
+          <div class="col">
+            <h3 class="headline-md">NEW CLI TOOL SIMPLIFIES CLOUD BACKUPS</h3>
+            <p class="subhead"><em>Lightweight package published to PyPI with zero external dependencies.</em></p>
+            <h4 class="kicker">OPEN SOURCE DISPATCH</h4>
+            <p class="drop-cap">
+              Developers tired of bloated backup utilities have turned to this crisp command-line interface. Written purely in standard-library Python, it compresses, encrypts, and syncs local directories in seconds.
+            </p>
+            <a href="https://github.com" target="_blank" class="article-btn">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="col-span-2">
+            <h3 class="headline-md">DATA DASHBOARD PREDICTS LOCAL TRANSIT DELAYS</h3>
+            <p class="subhead"><em>Machine learning model trained on 2 million historical timetable rows.</em></p>
+            <h4 class="kicker">DATA SCIENCE &amp; ANALYTICS</h4>
+            <div class="sub-columns-2">
+              <p class="drop-cap">
+                Investigative analysis of public transit feeds revealed recurring bottlenecks during wet weather. Using Pandas, Scikit-Learn, and Streamlit, an interactive web portal was constructed to forecast arrival windows.
+              </p>
+              <p>
+                Commuters can filter routes by time of day and inspect live accuracy charts. <a href="https://github.com" target="_blank" class="inline-link">Launch Interactive Demo &raquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT SIDEBAR: EDITOR BIO & SIDE COLUMN (2 Columns wide) -->
+      <aside class="sidebar-section">
+        <!-- Boxed Bio (Modeled after "Mayor's Address") -->
+        <div class="bordered-box bio-box">
+          <h3>Developer’s Address</h3>
+          <p>
+            <em>"I build reliable backends, clean APIs, and thoughtful web tools that turn messy data into simple human experiences."</em>
+          </p>
+          <span class="signature">— Your Name, Software Engineer</span>
+        </div>
+
+        <!-- Vertical News Column -->
+        <article class="sidebar-article">
+          <h2 class="headline-lg">PYTHON VS. MANUAL WORK: CASE CLOSED</h2>
+          <p class="subhead"><em>Why scripting small daily tasks compounds into massive productivity gains.</em></p>
+          <h4 class="kicker">ENGINEERING PHILOSOPHY</h4>
+          <p class="drop-cap">
+            Throughout my journey building software, my primary focus has been clarity and maintainability. Whether architecting a relational database schema or writing a 50-line automation script, good code reads like well-edited prose.
+          </p>
+          <p>
+            When I am not debugging async loops or optimizing SQL queries, you can find me exploring open-source tools, writing technical documentation, and experimenting with creative frontend layouts like this very broadsheet.
+          </p>
+        </article>
+
+        <!-- Vintage Ad Style Box (Modeled after "Wholesale Grocer") -->
+        <div class="ad-box" id="contact">
+          <span class="ad-tiny">AVAILABLE FOR CONSULTING &amp; FULL-TIME</span>
+          <h3 class="ad-title">HIRE THE DEV</h3>
+          <p>Have an idea, a backend bottleneck, or an open engineering role? Send a dispatch directly to the newsroom.</p>
+          <div class="contact-actions">
+            <a href="mailto:you@example.com" class="vintage-btn">EMAIL ME</a>
+            <a href="https://github.com" target="_blank" class="vintage-btn">GITHUB</a>
+            <a href="https://linkedin.com" target="_blank" class="vintage-btn">LINKEDIN</a>
+          </div>
+          <div class="ad-footer">DIRECT LINE: YOU@EXAMPLE.COM</div>
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- BOTTOM CLASSIFIEDS / MINI-PROJECTS SECTION -->
+    <section class="classifieds-grid" id="classifieds">
+      <div class="ad-card">
+        <span class="ad-stamp">SCRIPT Nº 1</span>
+        <h4>LOG PARSER</h4>
+        <p>Regex &amp; Python CLI tool that flags server anomalies in gigabytes of Nginx logs.</p>
+        <a href="https://github.com" target="_blank">INSPECT REPO</a>
+      </div>
+
+      <div class="ad-card">
+        <span class="ad-stamp">BOT Nº 2</span>
+        <h4>PRICE TRACKER</h4>
+        <p>Async BeautifulSoup + Telegram bot alerting users to hardware price drops.</p>
+        <a href="https://github.com" target="_blank">INSPECT REPO</a>
+      </div>
+
+      <div class="ad-card featured-ad">
+        <span class="ad-stamp">FEATURED PACKAGE</span>
+        <h4>FASTAPI STARTER KIT</h4>
+        <p>Production-ready boilerplate complete with JWT authentication, Alembic migrations, Docker Compose, and rate-limiting middleware.</p>
+        <div class="ad-price">MIT LICENSE • <span>FREE</span></div>
+      </div>
+
+      <div class="ad-card dark-ad">
+        <span class="ad-stamp">READY! AIM! DEPLOY!</span>
+        <h4>PORTFOLIO ARCHIVE</h4>
+        <p>Explore all 15+ repositories, Jupyter notebooks, and experimental web builds on my official GitHub profile.</p>
+        <a href="https://github.com" target="_blank" class="vintage-btn light-btn">VIEW ALL PROJECTS</a>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
